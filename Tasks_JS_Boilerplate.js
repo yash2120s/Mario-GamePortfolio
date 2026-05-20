@@ -40,7 +40,17 @@ function startGame() {                  /* HINT: define startGame funtion */
     
 }
 
-
+function closePopup(){
+    document.getElementById('start').style.display = 'flex';
+    document.getElementById('contactPopup').style.display='none'
+    
+    x=100;
+    y = 0;
+    coin = 0;
+    gameCompleted = false
+    document.getElementById('coins').innerText = "COINS:0"
+    location.reload()
+}
 
 
 
@@ -49,6 +59,16 @@ function startGame() {                  /* HINT: define startGame funtion */
 function SubmitForm() {
     
     alert('🚀 We Will Contact You Soon!');  /* HINT: "Success Message" */
+    document.getElementById('start').style.display = 'flex';
+    document.getElementById('contactPopup').style.display='none'
+    
+    x=100;
+    y = 0;
+    coin = 0;
+    gameCompleted = false
+    document.getElementById('coins').innerText = "COINS:0"
+    location.reload()
+
 }
 
 
@@ -221,7 +241,7 @@ function gameLoop() {
                     score++;                          /* Add 1 to score */
                     
                     /* UPDATE SCORE DISPLAY */
-                    document.getElementById('coins').innerText = score;  /* HINT: update 'score' value */
+                    document.getElementById('coins').innerText = "COINS:" + score;  /* HINT: update 'score' value */
                     
                     /* CREATE PARTICLES */
                     createParticles(cx, cy);
