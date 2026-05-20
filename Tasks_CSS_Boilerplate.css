@@ -16,8 +16,7 @@ body{
 #world{
     position: relative;           /* HINT: How to position element */
     width: 9000px;               /* How wide (for scrolling) */
-    height: 100vh;    
-               /* How tall (full screen height) */
+    height: 100vh;       /* How tall (full screen height) */
     overflow: hidden;            /* Hide things outside edges */
     background: 
     linear-gradient(
@@ -30,7 +29,7 @@ body{
     
 }
 
-#orld::before{
+#world::before{
     content: "";
 
     position: absolute;
@@ -158,7 +157,7 @@ body{
 .ground{
     position: absolute;               /* HINT: absolute/relative */
     bottom: 0;                        /* Stick to BOTTOM */
-    width: 8500px;                    /* Match world width */
+    width: 9000px;                    /* Match world width */
     height: 120px;                    /* How tall */
     background: 
     repeating-linear-gradient(
@@ -242,33 +241,63 @@ body{
 .panel{
     position: absolute;               /* HINT: absolute/relative */
     width: 550px;
-    background: #f0f0f0;             /* HINT: Card background color */
-    border: 8px solid #ccc;       /* HINT: Border color */
+    background: rgba(255,255,255,.92);             /* HINT: Card background color */
+    border: 2px solid #00000014;       /* HINT: Border color */
+    border-radius: 18px;
+
     padding: 40px;                   /* Space INSIDE card */
-    box-shadow: 15px 15px #ccc;  /* HINT: Shadow color */
-    transition: .4s;                 /* Smooth hover animation */
+    box-shadow: 0 10px 30px rgba(0,0,0,.18);  /* HINT: Shadow color */
+    color: #1e293b;
+    transition: transform .25s ease,
+    box-shadow .25 ease;                 /* Smooth hover animation */
+    
 }
 
+.panelW{
+    
 
+    animation: floatCard 3s ease-in-out infinite alternate;
+}
 
 /* ===== WHEN MOUSE HOVERS ON CARD ===== */
 .panel:hover{
+
+    animation-play-state: paused;
     transform: 
-    translateY(-10px)                /* Move UP 10px */
-    rotateY(-5deg)                   /* Tilt slightly */
-    scale(1.03);                     /* Grow 3% bigger */
+    translateX(-15px)                /* Move UP 10px */
+    rotateX(-5deg)                   /* Tilt slightly */
+    scale(1.03);  
+    box-shadow: 0 18px 40px rgba(0,0,0,.22);                   /* Grow 3% bigger */
 }
+
+@keyframes floatCard{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-15px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+
 
 /* ===== PANEL HEADING ===== */
 .panel h1{
-    font-size: 20px;
-    margin-bottom: 30px;
+    font-size: 28px;
+    margin-bottom: 18px;
+    color: #0f172a;
+    letter-spacing: 1px;
 }
 
 /* ===== PANEL TEXT ===== */
 .panel p{
-    font-size: 11px;
-    line-height: 2;                  /* Double spacing between lines */
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 1.9;                  /* Double spacing between lines */
+    color: #334155;
 }
 
 /* ===== SKILLS SECTION ===== */
@@ -281,8 +310,12 @@ body{
 
 /* ===== INDIVIDUAL SKILL TAG ===== */
 .skill{
-    background: #1e293b;             /* HINT: Skill tag color */
-    padding: 15px;
+    background: #5798ff;             /* HINT: Skill tag color */
+    padding: 12px 22px;
+
+    min-width: 120px;
+
+
     border: 4px solid #38bdf8 ;       /* HINT: Border color */
     transition: .2s;
 }
@@ -376,21 +409,29 @@ body{
     position: absolute;               /* HINT: absolute/relative */
     right: 300px;                    /* Position from RIGHT */
     bottom: 120px;                   /* Position from BOTTOM */
-    width: 15px;                     /* Thin pole */
+    width: 12px;                     /* Thin pole */
     height: 350px;                   /* Tall pole */
     background: #8B4513;             /* HINT: Pole color */
 }
 
+
 /* ===== FLAG CLOTH (WAVING) ===== */
-.flag-top{
-    width: 120px;
-    height: 80px;
-    background: #ff0000;             /* HINT: Flag color */
-    position: absolute;               /* HINT: absolute/relative */
-    left: 15px;                      /* Attach to pole */
-    top: 0;
-    clip-path: polygon(0 0, 100% 50%, 0 100%);  /* Triangle shape */
-    animation: flagWave 1s infinite alternate;  /* Wave animation */
+#flag::after{
+    content: "";
+    
+    position: absolute;
+    top: 6px;
+    left: 12px;
+
+    width: 0;
+    height: 0;
+    border-top: 45px solid transparent;
+    border-bottom: 45px solid transparent;
+    border-left: 130px solid #ff4d4d;
+    filter:drop-shadow(0 0 8px rgba(255,77,77,.5));
+
+    
+    animation: flagWave 2s ease-in-out infinite /* Wave animation */
 }
 
 /* ===== FLAG WAVING EFFECT ===== */
@@ -410,7 +451,7 @@ body{
     left: 20px;                      /* Distance from LEFT */
     z-index: 9999;                   /* Show on top */
     color: #fff;                 /* HINT: Text color */
-    text-shadow: 4px 4px #000;   /* HINT: Shadow color */
+       /* HINT: Shadow color */
     line-height: 2;                  /* Double line spacing */
 }
 
@@ -605,24 +646,32 @@ body{
 .popup-box{
     width: 90%;
     max-width: 700px;
-    background: #fff;             /* HINT: Box background */
-    border: 10px solid #000;     /* HINT: Border color */
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);             /* HINT: Box background */
+    border: 10px solid #222;    
+    border-radius: 24px; /* HINT: Border color */
     padding: 40px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.25);
     box-shadow: 15px 15px #000;  /* HINT: Shadow color */
     text-align: center;
+
+    animation: panelFloat 5s ease-in-out infinite;
 }
 
 /* ===== POPUP HEADING ===== */
 .popup-box h1{
-    font-size: 24px;
+    margin-top: 20px;
+    font-size: 26px;
     margin-bottom: 30px;
+    letter-spacing: 3px;
 }
 
 /* ===== POPUP TEXT ===== */
 .popup-box p{
-    font-size: 10px;
+    font-size: 14px;
     line-height: 2;
     margin-bottom: 30px;
+    color: #333;
 }
 
 /* ===== INPUT FIELDS ===== */
@@ -630,25 +679,44 @@ body{
 .popup-box textarea{
     width: 100%;
     margin-bottom: 20px;
-    padding: 20px;
-    border: 5px solid #000;     /* HINT: Border color */
+    padding: 18px;
+    border: 3px solid #222;     /* HINT: Border color */
+    border-radius: 14px;
+    background: rgba(255,255,255,.7);
     font-family: 'Press Start 2P', cursive;
     font-size: 10px;
+    outline: none;
+    box-sizing: border-box;
 }
 
 /* ===== TEXTAREA (MESSAGE BOX) ===== */
 .popup-box textarea{
     height: 150px;
-    resize: none;                   /* Don't allow resize */
+    resize: none;  
+    border-radius: 18px;                 /* Don't allow resize */
 }
 
 /* ===== SUBMIT BUTTON ===== */
 .popup-box button{
-    padding: 20px 30px;
-    background: #ff0000;             /* HINT: Button color */
-    border: 5px solid #000;      /* HINT: Border color */
+    padding: 18px 35px;
+    background: linear-gradient(
+        -45deg,
+        #ff6b6b,
+        #ff9f43
+    );             /* HINT: Button color */
+    border: none;     /* HINT: Border color */
+    border-radius: 18px;
     cursor: pointer;                /* HINT: Cursor style */
     font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    color: white;
+    transition: .3s;
+    box-shadow: 
+    0 8px 20px rgba(225,120,120,.35);
+}
+
+.popup-box button:hover{
+    transform: translateY(-4px) scale(1.04);
 }
 
 .particle{
