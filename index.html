@@ -31,8 +31,8 @@
             <span class="enemyT">AVOID ENEMIES 👾</span> 
             </div>
             <br>
-            <span class="=controls">MOVE  → ←</span><br>
-            JUMP SPACE
+            <span class="=controls">MOVE → ←</span><br>
+            JUMP SPACE ↑
         </p>
 
         <!-- HINT: Button to start game -->
@@ -61,6 +61,11 @@
     <!-- Ground -->
     <div class="ground"></div>
 
+
+    <div id ="flag"  style="left:8500px;bottom:120px"></div>
+
+
+
     <!-- PLAYER CHARACTER - Fill the gaps -->
     <div id="player" class="player">
         <div class="cap"></div>
@@ -74,19 +79,20 @@
 <!-- TASK 3: Add INFO PANELS -->
 
 <!-- ===== ABOUT ME PANEL ===== -->
+<div class="panelW" style="left: 700px; bottom: 180px;">
 <section class="panel" style="left:700px; bottom:180px;">
     <h2>ABOUT ME</h2>
-    <p>
-       
-        Rising Alta Coder<br><br>
-        CREATIVE FRONTEND DEVELOPER<br><br>
-        I BUILD 3D WEBSITES<br>       
-        GAME UI<br>
+    <p >
+        ASPIRING ALTA CODER<br>
+        CREATIVE FRONTEND DEVELOPER<br>
+        PASSIONATE PROGRAMMER<br>
+        INTERMEDIATE VIDEO EDITOR<br>
         INTERACTIVE EXPERIENCES
     </p>
-</section>
+</section></div>
 
 <!-- ===== SKILLS PANEL ===== -->
+<div class="panelW" style="left: 700px; bottom: 180px;">
 <section class="panel" style="left:2300px; bottom:180px;">
     <h2>SKILLS</h2>
     <div class="skills">
@@ -94,26 +100,32 @@
         <div class="skill">CSS</div>
         <div class="skill">JAVASCRIPT</div>
         <div class="skill">PYTHON</div>
+        <div class="skill">VIDEO EDITING</div>
+        <div class="skill">UI/UX</div>
     </div>
-</section>
+</section></div>
 
 <!-- ===== PROJECTS PANEL ===== -->
+<div class="panelW" style="left: 700px; bottom: 180px;">
 <section class="panel" style="left:4700px; bottom:180px;">
     <h2>PROJECTS</h2>
-    <div class="project">3D GAME WEBSITE</div>
-    <div class="project">CYBERPUNK UI</div>
-    <div class="project">INTERACTIVE DASHBOARD</div>
+    <div class="project">HTML PROJECTS</div>
+    <div class="project">SCRIPTED AI</div>
+    <div class="project">ANDROID APPS</div>
 </section>
-
+</div>
 <!-- ===== CONTACT PANEL ===== -->
+<div class="panelW" style="left: 700px; bottom: 180px;">
 <section class="panel" style="left:7000px; bottom:180px;">
     <h2>CONTACT</h2>
     <p>
-        EMAIL: hello@yash.com<br><br>
-        GITHUB: github.com/yash<br><br>
-        INSTAGRAM: @yash
+        EMAIL: yashrajdixit22@gmail.com<br><br>
+        GITHUB: github.com/@dev-yash45<br><br>
+        INSTAGRAM: @dev_yash45
     </p>
-</section>
+</section></div>
+
+
 
 <!-- TASK 4: Add GAME OBJECTS -->
 <!-- ===== COINS TO COLLECT ===== -->
@@ -129,12 +141,12 @@
         <div class="enemy" style="left:6000px; bottom:120px;"></div>
         <div class="enemy" style="left:7600px; bottom:120px;"></div>
 
-        <div id ="flag" style="left:8500px;bottom:120px"></div>
+        
 <!-- TASK 5: Add UI CONTAINER -->
 
 <!-- ===== FLOATING UI STATS ===== -->
     <section id="ui" class="ui-container">
-        <span id="coins">COINS: 0</span>
+        <span id="coins">COINS:0</span>
         <span id="world">WORLD: DEV-1</span>
     </section>
 
@@ -143,13 +155,14 @@
         <div class="popup-box">
             <h1>🚀 MISSION COMPLETE</h1>
             <p>YOU COMPLETED THE PORTFOLIO WORLD.<br><br>SEND YOUR QUERY OR PROJECT REQUEST.</p>
-            <form id="contactForm">
+            <form id="contactForm" onsubmit="SubmitForm()">
                 <input type="text" placeholder="YOUR NAME" required>
                 <input type="email" placeholder="YOUR EMAIL" required>
                 <textarea placeholder="YOUR MESSAGE" required></textarea>
+
                 <button type="submit" class="btn-submit">SEND MESSAGE</button>
             </form>
-            <button onclick="closePopup()" class="btn-close">✕</button>
+                <button onclick="closePopup()" class="btn-close">✕</button>
         </div>
     </div>
 
